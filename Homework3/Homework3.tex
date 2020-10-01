@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\author{Ben Schlegel
+}
+\title{Homework 3}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section* {7} (Grade This One)
+\noindent \textbf{Let $A_1, A_2, A_3,...$ be subsets of a metric space.}
+\begin{enumerate}[label=(\alph*)]
+    \item\textbf{If $B_n = \bigcup^n_{i=1} A_i$, prove that $\bar{B_n} = \bigcup^n_{i=1} \bar{A_1}$, for $n = 1,2,3, ...$ }
+    \item\textbf{If $B = \bigcup^\infty_{i=1} A_i$, prove that $\bar{B} \supset \bigcup^\infty_{i=1} \bar{A_1}$.}
+\end{enumerate}
+Show, by example, that this inclusion can be proper\\
+Answer:
+\begin{enumerate}[label=(\alph*)]
+    \item Let $p$ be a limit point of $\bar{A_j} \cup \bar{A_k}$ where $j,k < n$. Let $q \in \bar{A_j} \cup \bar{A_k}$ and $q \in N_\epsilon(p)$. Because all closures of a set are closed, the point $q$ must be in either $\bar{A_j}$, $\bar{A_k}$, or both, by the rules of a set union. This means no new limit points are introduced during the union, therefore  $\bar{B_n} = \bigcup^n_{i=1} \bar{A_1}$
+    \item The above proof handles the case where $B = \bigcup^\infty_{i=1} \bar{A_1}$. Prove the rest, I will provide an example of an inclusion which is proper. Let $A_j$ contain $\frac{1}{2^j}$ and nothing else. $0 \in \bar{B}$ and $0 \notin \bigcup^\infty_{i=1} \bar{A_1}$, because each set $A_j$ has no limit point, and one only emerges after the union of every set.
+\end{enumerate}
+
+\section*{8} (Grade This One)
+\noindent \textbf{Is every point of every open set $E \in R^2$ a limit point of $E$? Answer the same question for closed sets in $R^2$}
+Every point of the open set $E$ is a limit point of $E$. Because $E$ is open, every point is an interior point, meaning that there is a neighborhood based around that point that is a subset of $E$. If that is the case, 
+then for every point $q \in E$, $N_q(\epsilon)$ contains a point of $E$. Closed sets do not satisfy this condition, which I will prove with an example: set $A = {2,3}$. This set contains all of its limit points, which is none, so it is closed.
+$2$ is not a limit point of $A$.
+
+\section*{9}
+\noindent \textbf{Let $E^o$ denote the set of all interior points in $E$}
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Prove that $E^o$ is always open}
+    \item \textbf{Prove that $E$ is open if and only if $E^o = E$}
+    \item \textbf{If $G \subset E$ and $G$ is open, prove that $G \subset E^o$}
+    \item \textbf{Prove that the complement of $E^o$ is the closure of the complement of $E$}
+    \item \textbf{Do $E$ and $\bar{E}$ always have the same interiors?}
+    \item \textbf{Do $E$ and $E^o$ always have the same closures?}
+\end{enumerate}
+Answer:
+\begin{enumerate}[label=(\alph*)]
+    \item $E^o$ is the set of all interior points of $E$, and a set is open if every point is an interior point, therefore $E^o$ is open
+    \item If $E^o = E$, then every point in $E$ is an interior point, and therefore $E$ is open. If there is a point in $E$ and not in $E^o$, then that point is not an interior point, and $E$ is not open
+    \item If $G$ is open, it must contain only interior points. If $G \subset E$, then it must contain only points of $E$. If both of these are true, $G$ must contain only interior points of $E$, and therefore $G \subset E^o$
+    \item Any points in $E$ but not in $E^o$ are not interior points, meaning you cannot find a neighborhood around those points that is a subset of $E$. Because of this, they would be a limit point of $E^c$, as you can get arbitrarily close to the point without being in $E$. This means they would be included in $\bar{E^c}$. All other points not in either would be included in $\bar{E^c}$ because $E^o \subset E$
+    \item Not always, consider the sets $A = \frac{1}{n}$ for all $n \in \mathbb{N}$, $B = \frac{-1}{n}$ for all $n \in \mathbb{N}$, and $C = A \cup B$. Set $C$ has a limit point at 0, which is not in the set, but is in $\bar C$, and is an interior point as well
+    \item No, any isolated points in $E$ will be in $\bar E$ but not $\bar{E^o}$
+\end{enumerate}
+
+\section*{11}
+\noindent \textbf{For $x \in R^1$ and $y \in R^1$, define}
+\begin{align*}
+    d_1(x,y) = (x-y)^2,\\
+    d_2(x,y) = \sqrt{|x-y|},\\
+    d_3(x,y) = |x^2 - y^2|,\\
+    d_4(x,y) = |x - 2y|,\\
+    d_5(x,y) = \frac{|x-y|}{1 + |x-y|}\\
+\end{align*}
+\textbf{Determine, for each of these, whether it is metric or not}
+\begin{center}
+
+\begin{enumerate}
+    \item $d_1(-1,1) \le d_1(-1,0) + d_1(0,1)$ \\ $4 \le 1 + 1$ \\ Violates the triangle inequality, not metric
+    \item $d_2$ will always be greater or equal to zero as you cannot get a negative number out of a square root, and $\sqrt{|x-x|} = 0$\\ $|x - y| = |y - x|$\\ $\sqrt{|x-y|} \le \sqrt{|x-r|} + \sqrt{|r-y|}$ \\ $|x-y| \le |x-r| + 2\sqrt{|x-r|} \sqrt{|r-y|} + |r-y|$ \\ Ignoring the middle term leaves: $|x-y| \le |x-r| + |r-y|$. This is the triangle inequality. Since $2\sqrt{|x-r|} \sqrt{|r-y|}$ will always be positive, the triangle inquality holds \\ $d_2$ is metric
+    \item $d_3(-1,1) = 0$, $d_3$ is not metric
+    \item $d_4(-2,1) = 0$, $d_4$ is not metric
+    \item Let $a = d_5(x,y), b = d_5(x,r), c = d_5(r,y)$ \\ $\frac{a}{1+a} \le \frac{b}{1+b} + \frac{c}{1+c}$\\ $a + ab +ac + abc \le b + c+ ab + ac + 2bc + 2abc$\\ $a \le b + c + 2bc + abc$
+\end{enumerate}
+\end{center}
+
+\section*{12}
+\noindent \textbf{Let $K \in R^1$ consist of 0 and the numbers $1/n$, for $n = 1,2,3,...$ Prove that $K$ is compact directly from the definition (without using the Heine-Borel theorem)}
+Let $G$ be an open cover of $K$. Let $G_n$ be a subcover of $k$. Because $0 \in K$, 0 must be in at one of $G_n$, call it $G_0$. Since $G$ is open, and $K \subset G$, find the smallest r such that $N_r(0)$ that has an element of $K$. Let that element of $K$ be $q$. 
+Let $G_n$ be an open set that contains $1/n$. $G = \mathop{\cup}^{\frac{1}{q}}_{n = 0} G_n $\\
+
+\section*{13}
+\noindent \textbf{Construct a compact set of real numbers whose limit points form a countable set.}
+Let $G = {1,3}$. $G$ is compact as the open cover $\mathbb{R}$ has a finite subcover $(0,4)$. G has no limit points, so they form the empty set, which is countable
+\section*{14}
+\noindent \textbf{Give an example of an open cover of the segment (0,1) which has no finite subcover}
+Let $G$ be an open cover and $G_j$ be its subcovers for $j = 1,2,3,4,...$. Let $G_j = (0 + \frac{1}{j}, 1 - \frac{1}{j})$. $G$ has finite subcover, because if it did, you would take the largest value of j, and add 1 one to it, which wouldn't be covered 
+\section*{15}
+\noindent \textbf{Show that Theorem 2.36 and its Corollary become false (in $R^1$, for example) if the word "compact" is replaced by "closed" or by "bounded"}
+Let $K_n$ be the bounded set $(\frac{1}{n}, 1)$. Any intersection of these sets will be non-empty, but take the whole of them and the intersection will be empty.\\
+Let $K_n$ be the closed set $[n, \inf)$. Any intersection of these sets will be non-empty, but the intersection of the whole of them will be empty.
+
+\end{document} 

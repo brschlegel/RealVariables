@@ -1,0 +1,138 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\author{Ben Schlegel
+}
+\title{Exam 1}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section* {1}
+\noindent \textbf{For each of the following sets. determine whether the set is finite, countable, or uncountable. Prove your claims.}
+\begin{enumerate}[label=\textbf{\alph*)}]
+    \item \textbf{The real numbers that can be expressed as infinite sums of the form} 
+    \begin{align*}
+        x = \sum^{\infty}_{j=k} q^j
+    \end{align*}
+    \textbf{Where $k$ is a nonnegative integer and $q$ is a rational number}\\
+    This set of numbers is countable. Fix $q$ as a rational number $p$. The set of all numbers produced by $x = \sum^{\infty}_{j=k} p^j$ is countable, as every number $x$ can be mapped to the nonnegative integer $k$ that was used to generate it. The set of all rational numbers is countable, and the set $x = \sum^{\infty}_{j=k} q^j$ can be made by taking $\bigcup \sum^{\infty}_{j=k} p^j$ for all p. The union of countably many countable sets is countable, as the union of countable sets is countable, doing this countably many times will also produce a countable set.
+    \item \textbf{The set of all Sudoku puzzles}\\
+    The set of all Sudoku puzzles is finite, as each cell can only take 10 values, (1-9) or blank, and there only a finite number of cells therefore the set of all Sudoku puzzles is finite\\ 
+    \item \textbf{The real numbers that can be expressed as infinite sums of the form} \begin{align*}
+        x = \sum^{\infty}_{j=0} b_j 2^{-j}
+    \end{align*}
+    \textbf{where each $b_j$ is either 0 or 1}
+    This set is uncountable:\\
+    Assume this set is countable. In that case, there exists an infinite list that contains every number in this set, with the natural numbers as its index like such
+    \begin{align*}
+        \text{1)} 1*2^0 + 0*2^-1 + 1*2^-2+\dots\\
+        \text{2)} 1*2^0 + 1*2^-1 + 0 *2^-2+\dots\\
+        \vdots
+    \end{align*}
+    Let $c_j$ be $b_j$ of the $j$th item of the list. Then for every $c_j$ if it is a zero, change it to a 1. If it is a 1, change it to a zero. Let $y = \sum^{\infty}_{j=0} c_j 2^{-j}$. $y$ is distinct from every element of the list, and is not in the list, therefore the set is not countable
+    \item \textbf{All of the pages in all books that have ever been printed.}\\
+    The number of books that have been printed is finite , and the number of pages in each book is also finite, therefore all of the pages in all books that have been printed are finite\\
+    \item \textbf{The set of all functions whose domain is $\mathbb{N}$ and whose range in the finite set $\{0,1,2,3,4,5,6,7,8,9\}$}
+    Assume this set is countable. Lay out each element in the set with a correspondance to the natural numbers, which each function refered to by $F_n$. Each function in the set will be laid out as a list of the outputs for each of the natural numbers, like so:
+    \begin{align*}
+        \text{1)}  1,4,5,6,3,3,4,5,6,8,9,\dots \\
+        \text{2)}  4,5,7,3,7,8,9,5,4,4,5,\dots\\
+        \vdots
+    \end{align*}
+    Make another function $g$, where $g$ has the same domain and range as the functions in the set. Let $g(x)=$ the $x$th element of the $F_x$. Now for shift the value of the function $g$ up by 1, making it 0 if it is 9 for every $g(n)$. Now $g$ is different from every $F_n$, but is not in the list.
+    \item \textbf{The set consisting of all binomial coefficients}
+    Binomial coefficients can be writen as where $n\choose k$ and $n$ are integers such that $n \ge k \ge 0$. Fix $k$ as a nonnegative integer $a$. The set of all numbers $n\choose a$ for $n \ge a$ is countable, as the number can be mapped to the natural numbers as ($n-a$, $n\choose a$). Do this for every nonnegative integer $k$, and take the union of each set. The union of countably many countable sets is countable, therefore this set is countable.
+\end{enumerate}
+
+\section*{2}
+\noindent \textbf{In $\mathbb{R}^k$ consider the inner product---an inner product that is not the usual dot product---that is defined, for vectors $\vec{x} = (x_1,x_2,...x_k)$ and $\vec{y} = (y_1,y_2,...y_k)$ by the formula}\begin{align*}
+    \vec{x} * \vec{y} = \sum^k_{j=1}c_jx_jy_j
+\end{align*}
+\textbf{where $c_1,c_2,...c_k$ are positive real numbers. We define a vector \emph{norm}, $||x||_* = \sqrt{\vec{x} * \vec{x}}$ and we define a function $d_*(\vec{x}, \vec{y}) = ||\vec{x} - \vec{y}||_* = \sqrt{(\vec{x} - \vec{y})*(\vec{x} - \vec{y})}$}\\\vspace{10pt}
+
+\textbf{Now we have two different inner products, the one we just introduced, $\vec{x} * \vec{y} = \sum^k_{j=1}c_jx_jy_j$, with is associated norm, $||\vec{x}||_* = \sqrt{\vec{x}*\vec{x}}$ and the metric, $d_*(\vec{x},\vec{y}) = ||\vec{x} - \vec{y}||_* = \sqrt{(\vec{x} - \vec{y})*(\vec{x} - \vec{y})}$ and the standard inner product $\vec{x} \cdot \vec{y} = \sum^k_{j=1}x_jy_j$ with its associated norm $||\vec{x}||_2 = \sqrt{\vec{x} \cdot \vec{x}}$ and the metric $|\vec{x} - \vec{y}| = \sqrt{(\vec{x} - \vec{y}) \cdot (\vec{x} - \vec{y}) }$}
+\begin{enumerate}[label = \textbf{\alph*)}]
+    \item \textbf{State and prove the analog of the Schwarz inequality for $\vec{x} * \vec{y}$}
+    The inequality states $||\vec{x}||_*||\vec{y}||_* \ge |\vec{x}*\vec{y}|$, and equality holds if and only if $\vec{x} = c\vec{y}$ for a scalar $c$
+    Consider a function $p(t) = ||\vec{y}t-\vec{x}||_*^2$ for a real number $t$. $p(t) \ge 0$ because any number squared will be greater than zero
+    \begin{align*}
+        p(t) = (\vec{y}t-\vec{x})*(\vec{y}t-\vec{x})\\
+        p(t) = (\vec{y}t * \vec{y}t) - 2(\vec{x} * \vec{y}t) + \vec{x} * \vec{x}\\
+        p(t) = (\vec{y} * \vec{y})t^2 - 2t(\vec{x} * \vec{y}) + \vec{x} * \vec{x}
+    \end{align*}
+    Let $a = \vec{y} * \vec{y}$, $b = \vec{x} * \vec{y}$, and $c = \vec{x} * \vec{x}$
+    \begin{align*}
+        p(t) = at^2 - bt + c\\
+        p(\frac{b}{2a}) = \frac{ab^2}{4a^2} - \frac{b^2}{2a} + c\\
+        p(\frac{b}{2a}) = \frac{b^2}{4a} + c \ge 0\\
+        c \ge \frac{b^2}{4a}\\
+        4ac \ge b^2\\
+        4||\vec{y}||_*^2||\vec{x}||_*^2 \ge (2(\vec{x} * \vec{y}))^2\\
+        ||\vec{x}||_*||\vec{y}||_* \ge |\vec{x}*\vec{y}|
+    \end{align*}
+    If $\vec{x} = c\vec{y}$ for a scalar $c$
+    \begin{align*}
+        |\vec{x} * \vec{y}| = |c\vec{y} * \vec{y}|\\
+        = |c||\vec{y} * \vec{y}|\\
+        = |c|||\vec{y}||_*||\vec{y}||_*\\
+        =||c\vec{y}||_*||\vec{y}||_*\\
+        =||\vec{x}||_*||\vec{y}||_*\\
+    \end{align*}
+
+    \item \textbf{Prove that there are positive real numbers $M$ and $m$ such that for all vectors $\vec{x}$ and $\vec{y}$}\begin{align*}
+        |\vec{x} \cdot \vec{y}| \le M||\vec{x}||_*||\vec{y}||_* \\   \text{and}\\
+        m|\vec{x} * \vec{y}| \le ||\vec{x}||_2||\vec{y}||_2
+    \end{align*}
+    \textbf{And find the largest such $m$ and the smallest such $M$}
+    \begin{align*}
+        |\vec{x} \cdot \vec{y}| \le M|\vec{x} * \vec{y}| \le M||\vec{x}||_*||\vec{y}||_* \text{  by Cauchy Schwarz}\\
+        \sum^\infty_{j=1}x_jy_j \le M(\sum^\infty_{j=1}c_jx_jy_j)\\
+        \frac{\sum^\infty_{j=1}x_jy_j}{\sum^\infty_{j=1}c_jx_jy_j} \le M
+    \end{align*}
+    Because $c_j$ are all positive real numbers, $M$ will come out as a positive real number. The smallest value is $M =\frac{\sum^\infty_{j=1}x_jy_j}{\sum^\infty_{j=1}c_jx_jy_j}$
+    \begin{align*}
+        m|\vec{x} * \vec{y}| \le |\vec{x} \cdot \vec{y}| \le ||\vec{x}||_2||\vec{y}||_2 \text{  by Cauchy Schwarz}\\
+        m(\sum^\infty_{j=1}c_jx_jy_j) \le  \sum^\infty_{j=1}x_jy_j\\
+        m \le \frac{ \sum^\infty_{j=1}x_jy_j}{(\sum^\infty_{j=1}c_jx_jy_j)} 
+    \end{align*}
+    As above, $c_j$ are all positive real numbers, and as such $m$ will come out as a positive real number. The largest value is $m =\frac{ \sum^\infty_{j=1}x_jy_j}{(\sum^\infty_{j=1}c_jx_jy_j)}$
+    \item \textbf{For $k = 5$, consider the case in which $c_j = j$. For an arbitrary $\vec{x} = (x_1,x_2,...,x_k)$, find a non-zero $\vec{y} = (y,y_2,...,y_3)$ such that $\vec{x} * \vec{y} = 0$.}
+    For $\vec{y} = \{1,-\frac{x_1}{2x_2},0,0,0\}$ \begin{align*}
+        \vec{x} * \vec{y} = 1x_1y_1 + 2x_2y_2 + 3x_3y_3 + 4x_4y_4 + 5x_5y_5\\
+        \vec{x} * \vec{y} = x_1 + 2x_2(-\frac{x_1}{2x_2}) + 3x_3(0) + 4x_4(0) + 5x_5(0)\\
+        \vec{x} * \vec{y} = x_1 - x_1\\
+        \vec{x} * \vec{y} = 0
+    \end{align*}
+    \item \textbf{If not all $c_1,c_2,...c_k$ were positive, $d_*(\vec{x,\vec{y}})$ would no longer be a metric. Why?}
+    $d_*(\vec{x,\vec{y}})$ could end up negative. Take $\vec{x} = \{1,1\}$ and $\vec{y} = \{2,2\}$ with $c_1 = -1$, $c_2 = -1$. $d_*(\vec{x,\vec{y}}) = -4$
+
+\end{enumerate}
+    
+\section* {3}
+\noindent \textbf{Let $X$ be a metric space. A subset $A$ is said to be dense in $X$ if $\bar{A} = X$, that is, if the closure of $A$ is $X$. Prove that the following statements are equivalent, that is, prove that if any one of them is true they are all true:} \\
+\textbf{The set $A$ is dense in $X$.}\\
+As defined above: $\bar{A} = X$.\\
+\textbf{The only closed set that contains $A$ is $X$.}\\
+Because $X$ contains all sets, if another set contained $A$, then there would be elements of $X$ that aren't in $A$. If that set was closed, then there would be elements of $X$ that aren't in $\bar{A}$, because then that set would contain all of $A$'s limit points\\ 
+\textbf{There is no non-empty set that is disjoint from $A$.}\\
+Because $A \subseteq X$, and $X$ is closed (as it is a metric space), then $A$ is closed. $\bar{A} = A$. If $A$ contains every point in metric space $X$, than $A = X$, and as such $\bar{A} = X$\\
+\textbf{The set $A$ intersects every neighborhood.}\\
+If the set $A$ intersects every neighborhood, then $A$ contains every point in the metric space $X$. As above, $\bar{A} = X$
+\section* {4}
+\noindent \textbf{Two subsets $A$ and $B$ of a metric space $X$ are said to be \emph{seperated} if $A \cap \bar{B}$ and $B \cap \bar{A}$ are both empty, that is, if $A$ is disjoint from the closure of $B$ and $B$ is disjoint from the closure of $A$. $A$ set $E$ in $X$ is said to be \emph{connected} if it is not the union of two non-empty seperated sets. This is just Definition 2.45 in Rudin.}
+\begin{enumerate}[label=\textbf{\alph*)}]
+    \item \textbf{Prove that every convex set in $\mathbb{R}^k$ is connected.}
+    Say a set $E$ is not connected, it is the union of two seperated sets, call them $A$ and $B$. If this is the case, then there is a point in $A$ and a point in $B$ that the line between them is not entirely contained in $E$, because the closure of $A$ is disjoint from $B$. This means that the set $E$ is not convex, contradiction.
+    \item \textbf{Consider this claim: Two subset $A$ and $B$ of a metric space $X$ are seperated if and only if $\bar{A} \cap \bar{B}$ is empty. If it's true, prove that it's true; if it's false, prove that it's false.}
+    This is false. Take a set $A = \frac{1}{n}$ for all $n \in \mathbb{N}$ and set $B = -\frac{1}{n}$ for all $n \in \mathbb{N}$.  $A \cap \bar{B} = \emptyset$ and $B \cap \bar{A} = \emptyset$, but $\bar{B} \cap \bar{A} = \{0\}$
+\end{enumerate}
+
+\section* {5}
+\noindent \textbf{Give an example of an uncountable collection of disjoint closed sets in $\mathbb{R}^2.$}
+Take the set $A = \{(x,y) \in \mathbb{R}^2 : x = q y = 0\}$ where $q$ is any real number. Now take the collection of all possible $A$'s. This collection is uncountable as there are a set for each real number, which themselves are uncountable. Each set is disjoint as it only contains one number, which isn't in any other set. Each set is also closed because it contains its limit points, which in this case is none. 
+\section* {6}
+\noindent \textbf{Let $K$ compact subset of a metric space $X$. Suppose that $F_\beta$ is a collection of closed sets contained in $K$ and that $\bigcap_\beta F_\beta$ is empty. Prove that there is a finite collection of these closed sets with an empty intersection }
+Because $K$ is compact, $K$ is also closed and bounded. This means there is only a finite amount of "space" that can be used. A set intesects another if it uses some of the same "space". If the intersection is only empty with an infinite collection, then the "space" itself must be infinite, as the set must find some space that hasn't been used by any other set so as to not be the same as another set, but still intersect every other set at a point. This would mean $K$ is not compact, which is a contradiction.
+\end{document} 

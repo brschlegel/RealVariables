@@ -1,0 +1,123 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\author{Ben Schlegel
+}
+\title{Homework 2}
+\date{\today}
+\begin{document}
+\maketitle
+\section* {16} 
+\noindent \textbf{Suppose $k \ge 3, x, y \in R^k,|x-y| = d > 0 $, and $r > 0$. Prove:}
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{if $2r > d$, there are infinitely many $z \in R^k$ such that} \begin{align*}
+        |x-z| = |z-y| = r.
+    \end{align*}
+    Answer:
+    \begin{align*}
+        |x-z| + |z-y| = 2r\\
+        |x-z| + |z-y| > d\\
+        |x-z| + |z-y| > |x-y|
+    \end{align*}
+    I'm not quite sure where to go from here. I think it has something to do with the triangle inequality, but I can't find a way to untangle the z to make that a reality, or to state it in a logical way.
+    \item \textbf{If $2r = d$, there is exactly one such z}
+    Answer:
+    \begin{align*}
+        |x-z| + |z-y| = 2r\\
+        |x-z| + |z-y| = d\\
+        |x-z| + |z-y| = |x-y|\\
+        2|x-z| = |x-y|\\
+        2x-2z = x-y\\
+        \frac{2x}{x-y} = 2z\\
+        \frac{x}{x-y} = z
+    \end{align*}
+    \item \textbf{If $2r < d$, there is no such z}
+    Answer:
+    \begin{align*}
+        |x-z| + |z-y| = 2r\\
+        |x-z| + |z-y| < d\\
+        |x-z| + |z-y| < |x-y|
+    \end{align*}
+    Same deal as part 1, I can't quite figure out how to get the triangle inequality from this, but if I could this would contradict the triangle equality
+\end{enumerate}
+\textbf{How must these statements be modified if \emph{k} is 2 or 1}
+If k is 2 then the triangle inequality still stands, however if k is 1 there will always only be one z
+\section* {18}
+\noindent \textbf{If $k \ge 2$ and $x \in R^k$, prove that there exists $y \in R^k$ such that $y \neq$ 0 but $x \cdot y = 0.$}\newline
+\textbf{Is this also true if $k = 1$?}\newline
+Let $x = {x_1, x_2 \cdots + x_k}$.\\
+If $x = 0$ then any $y \neq 0$ will suffice due to:
+\begin{align*}
+    x \cdot y = \sum_{j=1}^{k} 0*y_j = 0
+\end{align*}
+If $x \neq 0$ then at least one component of x must be non zero
+Then let $x_a$ be a non-zero component of x, and $x_b$ be any other component of x. Let $y = {y_1, y_2 \cdots, y_k }$ and be defined by:
+
+\[
+    y_j = 
+    \begin{cases}
+        \frac{x_b}{x_a}& \text{if } j = a\\
+        -1& \text{if } j = b\\
+        0& \text{anything else}
+    \end{cases}  
+\]
+This simplifies down to $x \cot y = 1 + -1$ or simply $x \cdot y = 0$ 
+\section{}
+\noindent \textbf{Prove that the empty set is a subset of every set}
+A subset is a set in which all of it's elements are contained in another set. Since there are no elements in the empty set, all of those elements are contained in every set
+\section{}
+\noindent \textbf{A complex number \emph{z} is said to be \emph{algebraic} if there are integers $a_0, ... a_n$, not all zero, such that } \begin{center} $a_0z^n + a_1z^{n-1} + \cdots + a_{n-1}z + a_n = 0$.\end{center}
+\textbf{Prove that the set of all algebraic numbers is countable. \emph{Hint:} For every positive integer \emph{N} there are only finitely many equations with} \begin{center}
+    $n + |a_0| + |a_1| + \cdots + |a_n| = N$
+\end{center} 
+The above equation($a_0z^n + a_1z^{n-1} + \cdots + a_{n-1}z + a_n = 0$) takes the form of a polynomial, with $z$ being the variable, and $n$ being the degree. We know that the set of all integers are countable, and that n is an integer. With this,
+we use the Fundamental Theorum of Algebra to state that this polynomial only has N roots. The set of all of the roots in this polynomial is countable We take the set of all the roots for any $a_0, \cdots a_n$ and union that with the roots of every other set of $a_0, ... a_n$, resulting in a union of countable sets, meaning 
+the entire set is countable.
+\begin{align*}
+\end{align*}
+\section{}
+\noindent \textbf{Prove that there exist real numbers which are not algebraic}
+Consider $\pi$, where $a_j$ are integers in the form of the above question 2:
+\begin{align*}
+    a_0 \pi^n = a_1\pi^{n-1}\\
+    \frac{a_0}{a_1} = \pi^{-1} \\
+    \frac{a_1}{a_0} = \pi
+\end{align*}
+$\pi$ is a irrational number, which means that it cannot be represented by the ratio of two integers. This is indicative of a larger statement: an exponent can only be changed if multiplied by another number of the same base. In this case
+that base is $\pi$, which is not an integer, meaning that the equation \begin{center}
+    $a_0\pi^n + a_1\pi^{n-1} + \cdots + a_{n-1}\pi + a_n = 0$
+\end{center}
+cannot be satisfied, making $\pi$ a real, non-algebraic number.
+\section{} (Please Grade this one)
+\noindent \textbf{Is the set of all irrational real numbers countable?} 
+No. We know that the set of all real numbers are uncountable, and the set of all rational numbers are countable. The union of rational(countable) numbers and the irrational numbers 
+yields the real(uncountable) numbers. Because of this, the irrational numbers must be uncountable, as you cannot get uncountable numbers by the addition of two countable sets. 
+\begin{align*}
+\end{align*}
+
+\section{} (Please Grade this one)
+\noindent \textbf{Construct a bounded set of real numbers with exactly three limit points.}
+Let set $A = \frac{n}{n+1}$ for $n \in \mathbf{N}$, the set of all natural numbers, set $B = \frac{1}{n + 1}$ for $n \in {\mathbf{N}}$, set $C = \frac{n}{2(n+1)}$ for $n \in \mathbf{N}$\\
+$A$, $B$, and $C$ are all composed of only rational numbers, as they are defined by ratios of two integers. Because we know that the set of all rational numbers is dense with irrational numbers, that being said there is an irrational number inbetween any pair of rational numbers, we know that no 
+elements of any of these sets are limit points. $\lim{n \to \inf}\frac{n}{n+1} = 1$, producing our only limit point on $A$, 1.\\
+Using the same logic, we get the singular limit point of $B$ and $C$:\\ 
+$\lim{n \to \inf}\frac{1}{n} = 0$\\
+$\lim{n \to \inf}\frac{n}{2(n+1)} = \frac{1}{2}$\\
+Finally, the set created with $A \cup B \cup C$ has only three limit points
+
+\section{} 
+\noindent \textbf{Let $E'$ be the set of all limit points of a set $E$. Prove that $E'$ is closed. Prove that $E$ and $\bar{E}$ have the same limit points. (Recall that $\bar{E} = E \cup E'$) Do $E$ and $E'$ always have the same limit points? }
+Let $p$ be a limit point of $E'$. Any neighborhood of $p$ will contain a point in $E'$, called $q$. Because $q \in E'$, $q$ is a limit point of $E$, meaning any neighborhood of $q$ will contain
+a point $x \in E$. Let $d(p,q) = r_0$, and $d(q,x) = r_1$. Both $r_0$ and $r_1$ are arbitrarily small as stated above.
+\begin{align*}
+    r_0 + r_1 > d(p,x)
+\end{align*}
+This is due to the triangle inequality, and if $d(p,x)$ is smaller than the sum of two arbitrarily small values then it itself must be arbitrarily small. This means that $p$ is a limit point of $E$, therefore being contained in $E'$. $E'$ is closed.
+
+\vspace{10 pt}
+
+\noindent The only points in $E$ that aren't in $E'$ are not limit points by definition. In performing $E \cup E'$, you are introducing no new limit points to $E'$, therefore $E'$ and $\bar{E}$ have the same limit points
+
+\vspace{10 pt}
+\noindent $E'$ is defined as the set of all the limit points of $E$. $E'$ is also closed as proved above, meaning it contains all of its own limit points, which again, if a point is in $E'$, it must be a limit point of $E$, so yes, thte limit points will always be the same
+\end{document} 
